@@ -38,10 +38,10 @@ function Home() {
         e.preventDefault();
         setResponse({formSave: true});
         try{
-            /*acesso localhost*/
-            const res = await fetch('http://localhost:8080/orcamento', {
             /*acesso na umbler*/
-            /*const res = await fetch('http://celkeapi4-com-br.umbler.net/orcamento', {*/
+            const res = await fetch('http://eletroapi-com-br.umbler.net/orcamento', {
+            /*acesso local*/
+            /*const res = await fetch('http://localhost:8080/orcamento', {*/
                 method: 'POST',
                 body: JSON.stringify(orcamento),
                 headers: {'Content-Type': 'application/json'}
