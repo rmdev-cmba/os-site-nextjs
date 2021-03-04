@@ -87,7 +87,7 @@ function Home() {
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="mr-auto" navbar>
                             <NavItem>
-                                <NavLink href="/">Orçamento</NavLink>
+                                <NavLink href="/">Listar Orçamentos</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
@@ -105,7 +105,7 @@ function Home() {
                     }`}
                 </style>
                 <Container>
-                    <h1 className="display-4 text-center">Nossos consultores estão prontos para lhe ajudar!</h1>
+                    <h1 className="display-4 text-center">Solicite seu orçamento!</h1>
                     <p className="lead text-center mb-4">Deixe seus contatos abaixo que retornaremos com uma proposta específica para sua necessidade.</p>
 
                     {response.type === 'error'? <Alert color="danger">{response.message}</Alert> : ""}
@@ -114,7 +114,7 @@ function Home() {
                     <Form onSubmit={sendOrcamento}>
                         <FormGroup>
                             <Label for="name">Nome</Label>
-                            <Input type="text" name="name" id="name" placeholder="Preencha com o nome completo" onChange={onChangeInput} />
+                            <Input required type="text" name="name" id="name" placeholder="Preencha com o nome completo" onChange={onChangeInput} />
                         </FormGroup>
 
                         <FormGroup>
@@ -124,7 +124,7 @@ function Home() {
 
                         <FormGroup>
                             <Label for="phone">Telefone</Label>
-                            <Input type="text" name="phone" id="phone" placeholder="(XX) XXXX-XXXX" onChange={onChangeInput} />
+                            <Input type="text" name="phone" id="phone" data-mask="(__)_____-____" placeholder="(XX) XXXX-XXXX" onChange={onChangeInput} />
                         </FormGroup>
 
                         <FormGroup>
@@ -134,7 +134,7 @@ function Home() {
 
                         <FormGroup>
                             <Label for="msg">Conteúdo</Label>
-                            <Input type="textarea" name="msg" id="msg" placeholder="Fale um pouco do seu projeto" onChange={onChangeInput} />
+                            <Input type="textarea" name="msg" id="msg" placeholder="Descreva o aparelho e o defeito" onChange={onChangeInput} />
                         </FormGroup>
 
                         {response.formSave ? <Button type="submit" outline color="info" disabled>Enviando...</Button> : <Button type="submit" outline color="info">Enviar</Button>}
